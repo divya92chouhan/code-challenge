@@ -21,6 +21,13 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def destroy
+    @company.destroy
+    respond_to do |format|
+      format.html { redirect_to companies_path, notice: 'company has been successfully deleted.' }
+    end
+  end
+
   def edit
   end
 
@@ -49,5 +56,4 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   end
-  
 end
